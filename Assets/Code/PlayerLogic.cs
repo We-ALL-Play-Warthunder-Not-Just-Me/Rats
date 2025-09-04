@@ -13,10 +13,8 @@ public class PlayerLogic : MonoBehaviour
   
     void Start()
     {
-        moveAction = InputSystem.actions.FindAction("move");
-        controller = gameObject.AddComponent<CharacterController>();
-        moveSpeed = 10;
-
+        //moveAction = InputSystem.actions.FindAction("move");
+        //controller = gameObject.AddComponent<CharacterController>();
     }
 
     void OnMove(InputValue value)
@@ -27,7 +25,7 @@ public class PlayerLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(new Vector3(moveVal.x, moveVal.y, 0) * moveSpeed * Time.deltaTime);
+        transform.Translate(new Vector3(moveVal.x, 0, moveVal.y) * moveSpeed * Time.deltaTime);
 
 
     }
