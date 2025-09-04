@@ -1,16 +1,34 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerLogic : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    InputAction moveAction;
+    InputAction jumpAction;
+
+    private CharacterController controller;
+    public Vector2 moveVal;
+    public float moveSpeed;
+
+  
     void Start()
     {
-        
+        moveAction = InputSystem.actions.FindAction("move");
+        controller = gameObject.AddComponent<CharacterController>();
+        moveSpeed = 10;
+
     }
 
+    void OnMove(InputValue value)
+    {
+        moveVal = value.Get<Vector2>();
+        Debug.Log(moveVal.ToString());
+    }
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(new Vector3(moveVal.x, moveVal.y, 0) * moveSpeed * Time.deltaTime);
+
+
     }
 }
