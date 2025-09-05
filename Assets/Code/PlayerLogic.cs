@@ -22,6 +22,7 @@ public class PlayerLogic : MonoBehaviour
 
     private void Awake()
     {
+        // this is bad programming
         cam = this.gameObject.transform.GetChild(0);
     }
 
