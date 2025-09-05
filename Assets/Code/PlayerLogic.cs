@@ -18,6 +18,7 @@ public class PlayerLogic : MonoBehaviour
         //moveAction = InputSystem.actions.FindAction("move");
         //controller = gameObject.AddComponent<CharacterController>();
         moveSpeed = 5; lookSpeed = 0.1f;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     private void Awake()
