@@ -17,12 +17,12 @@ public class PlayerLogic : MonoBehaviour
     {
         //moveAction = InputSystem.actions.FindAction("move");
         //controller = gameObject.AddComponent<CharacterController>();
-        moveSpeed = 5; lookSpeed = 0.1f;
+        moveSpeed = 5; lookSpeed = 0.2f;
         //Confine the mouse cursor into the Game Window so it can't leave
         Cursor.lockState = CursorLockMode.Confined;
         //Locks the mouse cursor so it can't move(like moving the camera mode type deal)
         Cursor.lockState = CursorLockMode.Locked;
-            //Basically change between locked and confined for certain actions
+        //Basically change between locked and confined for certain actions
     }
 
     private void Awake()
@@ -46,7 +46,7 @@ public class PlayerLogic : MonoBehaviour
     void Update()
     {
         transform.Translate(new Vector3(moveVal.x, 0, moveVal.y) * moveSpeed * Time.deltaTime);
-        transform.Rotate(new Vector3(0, lookVal.x, 0)*lookSpeed);
+        transform.Rotate(new Vector3(0, lookVal.x, 0) * lookSpeed);
         cam.transform.Rotate(new Vector3(-lookVal.y, 0, 0) * lookSpeed);
     }
 }
